@@ -59,7 +59,7 @@ export default function Singup() {
             const userData = { name, password, email };
 
             try {
-                const response = await fetch(`${BASE_APT_URL}/api/auth/singup`, {
+                const response = await fetch("https://express-js-backend.onrender.com/api/auth/singup", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

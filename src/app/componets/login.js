@@ -46,7 +46,7 @@ export default function Login() {
             const userData = {password, email };
 
             try {
-                const response = await fetch(`${BASE_APT_URL}/api/auth/login`, {
+                const response = await fetch("https://express-js-backend.onrender.com/api/auth/login", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

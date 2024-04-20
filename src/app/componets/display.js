@@ -19,7 +19,7 @@ export function Display_data() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`${BASE_APT_URL}/users/getdata`, {
+                const response = await fetch("https://express-js-backend.onrender.com/users/getdata", {
                     headers: {
                         "Authorization": `Bearer ${token}`
                     },
