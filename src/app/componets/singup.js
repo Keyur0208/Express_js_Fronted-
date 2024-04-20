@@ -74,6 +74,9 @@ export default function Singup() {
                 else {
                     setloading(false);
                     toast.error("User Alredy Extis");
+                    setemail("");
+                    setpassword("");
+                    setname("");
                 }
             } catch (error) {
                 console.error('An error occurred:', error);

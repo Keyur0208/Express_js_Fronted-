@@ -69,16 +69,22 @@ export default function Login() {
                         {
                             toast.error("Password incorrect")
                             setloading(false);
+                            setemail("");
+                            setpassword("");
                         } 
                         else if (errorData.message === "User Not found") 
                         {
                             toast.error("User not found");
                             setloading(false);
+                            setemail("");
+                            setpassword("");
                         } 
                         else 
                         {
                             console.error('An error occurred:', errorData.message); 
                             setloading(false);
+                            setemail("");
+                            setpassword("");
                         }
                     } else {
                         console.error('An error occurred:', errorData.message);
