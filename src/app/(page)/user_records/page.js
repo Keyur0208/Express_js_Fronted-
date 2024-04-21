@@ -6,7 +6,7 @@ export const metadata = {
 }
 
 async function getusersdetails() {
-    let userdata = await fetch(`${BASE_APT_URL}/admin/record`, { cache: 'no-store' });
+    let userdata = await fetch("https://express-js-backend.onrender.com/admin/record", { cache: 'no-store' });
     userdata = await userdata.json();
     return userdata.message;
 }
