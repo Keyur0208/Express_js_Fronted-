@@ -1,10 +1,11 @@
 "use client"
 import Link from "next/link";
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { BASE_APT_URL } from "../config/api_config";
+
 
 export default function Singup() {
 
@@ -14,6 +15,15 @@ export default function Singup() {
     const [password, setpassword] = useState("");
     const [loading, setloading] = useState(false);
     const [type, settype] = useState("password")
+
+    const token = typeof window !== 'undefined' ? localStorage.getItem("USE") : null; 
+
+    useEffect(()=>{
+        if(token)
+        {
+            router.push('/deshboard')
+        }
+    })
     
     const show_password = () =>{
 
