@@ -2,16 +2,17 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BASE_APT_URL } from "../config/api_config";
+import Cookies from "js-cookie";
 
 
 export function Display_data() {
 
     const router = useRouter();
     const [user, setUser] = useState();
-    const token = typeof window !== 'undefined' ? localStorage.getItem("USE") : null; 
+    const token = typeof window !== 'undefined' ?  Cookies.get('USE') : null; 
 
     const logout = async () => {
-        localStorage.removeItem('USE');
+        Cookies.remove('USE');
         router.push('/login');
     }
 

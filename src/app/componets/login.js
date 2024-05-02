@@ -5,6 +5,8 @@ import { useEffect, useState } from "react"
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { BASE_APT_URL } from "../config/api_config";
+import Cookies from "js-cookie";
+import { parseSetCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 export default function Login() {
 
@@ -14,7 +16,7 @@ export default function Login() {
     const [loading, setloading] = useState(false);
     const [type, settype] = useState("password")
 
-    const token = typeof window !== 'undefined' ? localStorage.getItem("USE") : null; 
+    const token = typeof window !== 'undefined' ? Cookies.get("USE") : null; 
 
     useEffect(()=>{
         if(token)
@@ -66,7 +68,10 @@ export default function Login() {
             
                 if (response.status === 200) {
                     const token_data = await response.json();
-                    localStorage.setItem("USE",token_data.token);
+                    var inFifteenMinutes = new Date(new Date().getTime() + 15 * 60 * 1000);
+                    Cookies.set("USE",token_data.token,{
+                        expires:inFifteenMinutes
+                    })
                     toast.success("Succefully Login");
                     router.push('/deshboard');
                 } 

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { BASE_APT_URL } from "../config/api_config";
+import Cookies from "js-cookie";
 
 
 export default function Singup() {
@@ -16,7 +17,7 @@ export default function Singup() {
     const [loading, setloading] = useState(false);
     const [type, settype] = useState("password")
 
-    const token = typeof window !== 'undefined' ? localStorage.getItem("USE") : null; 
+    const token = typeof window !== 'undefined' ? Cookies.get("USE") : null; 
 
     useEffect(()=>{
         if(token)
