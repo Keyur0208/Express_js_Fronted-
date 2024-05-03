@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { BASE_APT_URL } from "../config/api_config";
 import Cookies from "js-cookie";
+import { BASE_APT_URL } from "../config/api_config";
 
 
 export default function Singup() {
@@ -70,7 +70,7 @@ export default function Singup() {
             const userData = { name, password, email };
 
             try {
-                const response = await fetch("https://express-js-backend.onrender.com/api/auth/singup", {
+                const response = await fetch(`${BASE_APT_URL}/api/auth/singup`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -6,7 +6,6 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { BASE_APT_URL } from "../config/api_config";
 import Cookies from "js-cookie";
-import { parseSetCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 export default function Login() {
 
@@ -58,7 +57,7 @@ export default function Login() {
             const userData = {password, email };
 
             try {
-                const response = await fetch("https://express-js-backend.onrender.com/api/auth/login", {
+                const response = await fetch(`${BASE_APT_URL}/api/auth/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
